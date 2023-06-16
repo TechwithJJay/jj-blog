@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 import moment from 'moment';
 
 const PostDetail = ({ post }) => {
@@ -47,7 +47,7 @@ const PostDetail = ({ post }) => {
         );
       case 'image':
         return (
-          <img
+          <Image
             key={index}
             alt={obj.title}
             height={obj.height}
@@ -64,7 +64,10 @@ const PostDetail = ({ post }) => {
     <>
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
         <div className="relative overflow-hidden shadow-md mb-6">
-          <img
+          <Image
+            unoptimized
+            height={30}
+            width={30}
             src={post.featuredImage.url}
             alt="post.title"
             className="object-top h-full w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg"
@@ -73,10 +76,11 @@ const PostDetail = ({ post }) => {
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
             <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
-              <img
+              <Image
                 alt={post.author.name}
-                height="30px"
-                width="30px"
+                height={30}
+                width={30}
+                unoptimized
                 className="align-middle rounded-full"
                 src={post.author.photo.url}
               />
@@ -87,7 +91,7 @@ const PostDetail = ({ post }) => {
             <div className="font-medium text-gray-700">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 inline mr-2 text-pink-500"
+                className="h-6 w-6 inline mr-2 text-blue-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
