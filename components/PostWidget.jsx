@@ -3,7 +3,7 @@ import Image from 'next/image';
 import moment from 'moment';
 import Link from 'next/link';
 
-import { grpahCMSImageLoader } from '../util';
+import { graphCMSImageLoader } from '../util';
 import { getSimilarPosts, getRecentPosts } from '../services';
 
 const PostWidget = ({ categories, slug }) => {
@@ -19,7 +19,7 @@ const PostWidget = ({ categories, slug }) => {
         setRelatedPosts(result);
       });
     }
-  }, []);
+  }, [categories, slug]);
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
@@ -30,11 +30,10 @@ const PostWidget = ({ categories, slug }) => {
         <div key={post.title} className="flex items-center w-full mb-4">
           <div className="w-16 flex-none">
             <Image
-              // loader={grpahCMSImageLoader}
+              loader={graphCMSImageLoader}
               alt={post.title}
               height={60}
               width={60}
-              unoptimized
               className="align-middle rounded-full"
               src={post.featuredImage.url}
             />
