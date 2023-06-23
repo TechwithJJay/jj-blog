@@ -9,6 +9,7 @@ const Author = ({ author }) => (
       <Image
         loader={graphCMSImageLoader}
         alt={author.name}
+        unoptimized
         height={100}
         width={100}
         className="align-middle rounded-full"
